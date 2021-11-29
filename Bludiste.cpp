@@ -5,7 +5,7 @@ Bludiste::Bludiste(int _n, int _m) : n(_n), m(_m), r({0,0}), r_finish({n,m}), st
 Bludiste::Bludiste(int _n, int _m, Souradnice f) : Bludiste(_n,_m) { r_finish = f; }
 Bludiste::Bludiste(int _n, int _m, Souradnice f, std::vector<bool> zdi) : Bludiste(_n,_m,f) { wall = zdi; }
 
-bool Bludiste::nahoru() { 
+bool Bludiste::nahoru() {
     if (r.y < m - 1 && !wall[r.x + (r.y+1)*n]) {
         r.y++;
         steps++;
@@ -18,7 +18,7 @@ bool Bludiste::nahoru() {
         return false;
     }
 }
-bool Bludiste::dolu() { 
+bool Bludiste::dolu() {
     if (r.y > 0 && !wall[r.x + (r.y-1)*n]) {
         r.y--;
         steps++;
@@ -31,7 +31,7 @@ bool Bludiste::dolu() {
         return false;
     }
 }
-bool Bludiste::vlevo() { 
+bool Bludiste::vlevo() {
     if (r.x > 0 && !wall[r.x - 1 + r.y*n]) {
         r.x--;
         steps++;
@@ -44,7 +44,7 @@ bool Bludiste::vlevo() {
         return false;
     }
 }
-bool Bludiste::vpravo() { 
+bool Bludiste::vpravo() {
     if (r.x < n - 1 && !wall[r.x + 1 + r.y*n]) {
         r.x++;
         steps++;
@@ -57,7 +57,7 @@ bool Bludiste::vpravo() {
         return false;
     }
 }
-bool Bludiste::cil() { 
+bool Bludiste::cil() {
     if (r == r_finish || finish) return true;
 }
 Souradnice Bludiste::poloha() { return r; }
@@ -68,13 +68,13 @@ int Bludiste::pocet_narazu() { return touches; }
 bool Bludiste::uloz_cestu(std::string nazev_souboru) {
     std::ofstream soubor;
     soubor.open(nazev_souboru,std::ios::out);
-    
+
     if (!soubor) return false;
-    
+
     for (auto & step : cesta) {
       soubor << step.x << " " << step.y << "\n";
     }
-    
+
     soubor.close();
     return true;
 }

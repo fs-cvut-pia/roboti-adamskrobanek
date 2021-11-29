@@ -10,9 +10,9 @@
 
 class Prohledavac {
 public:
-    virtual bool start(Bludiste & map) = 0;
-    virtual bool start(BludisteOdkryte & map) = 0;
-    virtual bool stop() = 0;
+    Prohledavac();
+    virtual bool start(Bludiste & map) = 0; //zapne robota
+    virtual bool stop() = 0; //vypne robota
     virtual void krok(Bludiste & map) = 0;
     virtual void krok(BludisteOdkryte & map) = 0;
     virtual std::string jmeno() = 0;

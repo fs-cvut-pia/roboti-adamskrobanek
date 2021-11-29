@@ -29,7 +29,7 @@ public:
     bool dolu();
     bool vlevo();
     bool vpravo();
-    bool cil();
+    bool cil(); //vrací true, když je v cíli
     Souradnice poloha();
     int pocet_kroku();
     int pocet_narazu();
@@ -41,7 +41,7 @@ protected:
 private:
     Souradnice r;
     std::vector<Souradnice> cesta;
-    int steps, touches; 
+    int steps, touches;
     bool finish;
 };
 
